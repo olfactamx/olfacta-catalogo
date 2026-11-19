@@ -499,6 +499,74 @@
     .hero-progress span.run{animation:none;width:0}
   }
 </style>
+<style id="notes-and-compact-header">
+  /* ===== Notas olfativas (barritas de colores, estilo Wix) ===== */
+  .notes{margin-top:10px}
+  .notes-title{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#9d9da4;margin:0 0 6px}
+  .notes-bars{display:flex;flex-direction:column;gap:3px;align-items:flex-start}
+  .note-bar{display:flex;align-items:center;height:20px;padding:0 10px;border-radius:3px 9px 9px 3px;font-size:11.5px;font-weight:700;line-height:1;white-space:nowrap;overflow:hidden;max-width:100%;min-width:fit-content;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+  .notes--large .note-bar{height:26px;font-size:13px;padding:0 12px;border-radius:4px 11px 11px 4px}
+  .notes--large .notes-title{font-size:11.5px;color:var(--muted)}
+  #m-notes{margin:0 0 16px}
+  #m-notes:empty{display:none}
+  @media (max-width:560px){
+    .note-bar{height:19px;font-size:11px;padding:0 8px}
+    .notes--large .note-bar{height:25px;font-size:12.5px}
+  }
+
+  /* ===== Encabezado compacto al hacer scroll ===== */
+  .topbar{transition:box-shadow .25s ease}
+  .topbar-in,.brandmark img,.brandmark .bname{transition:all .25s ease}
+  .head-search,.topnav{transition:opacity .2s ease}
+  .topbar.is-compact{box-shadow:0 10px 24px rgba(0,0,0,.35)}
+  .topbar.is-compact .topbar-in{min-height:52px;padding:6px 0;flex-wrap:nowrap;row-gap:0}
+  .topbar.is-compact .brandmark img{width:32px;height:32px;border-radius:7px}
+  .topbar.is-compact .brandmark .bname{font-size:16px;letter-spacing:.18em}
+  .topbar.is-compact .brandmark .bsub{display:none !important}
+  .topbar.is-compact .head-search{display:none}
+  .topbar.is-compact .topnav{position:absolute;top:7px;right:16px;left:auto;width:auto;max-width:none;margin:0;padding:0;border-top:0;background:transparent;justify-content:flex-end}
+  @media (min-width:1216px){ .topbar.is-compact .topnav{right:calc((100vw - 1180px)/2 + 18px)} }
+  .topbar.is-compact .topnav a{display:none !important}
+  .topbar.is-compact .cart-nav-btn{min-height:38px;padding:7px 13px;font-size:13.5px;background:#1e1e21}
+  @media (prefers-reduced-motion: reduce){
+    .topbar,.topbar-in,.brandmark img,.brandmark .bname,.head-search,.topnav{transition:none}
+  }
+</style>
+<style id="tabs-bigger-and-sections-menu">
+  /* ===== Botones de secciones (Decants / Perfumes / Cremas) más grandes y vistosos ===== */
+  .toolbar .tabs{gap:12px}
+  .toolbar .tab{font-size:17px;font-weight:800;padding:14px 22px;min-height:56px;border:2px solid #3d3d44;background:#1e1e21;color:#fff;gap:10px;box-shadow:0 4px 14px rgba(0,0,0,.35);letter-spacing:.01em}
+  .toolbar .tab .count{font-size:15px;font-weight:800;padding:4px 11px;min-width:38px;text-align:center;background:#333338;color:#fff;border:1px solid rgba(255,255,255,.16);border-radius:999px}
+  .toolbar .tab:hover{border-color:#fff}
+  .toolbar .tab[aria-selected="true"]{background:#fff;border-color:#fff;color:#111113;box-shadow:0 8px 22px rgba(255,255,255,.24)}
+  .toolbar .tab[aria-selected="true"] .count{background:#111113;color:#fff;border-color:#111113}
+  @media (max-width:560px){
+    .toolbar .tabs{gap:10px}
+    .toolbar .tab{font-size:16.5px;padding:13px 18px;min-height:54px}
+    .toolbar .tab .count{font-size:14.5px;padding:4px 10px;min-width:36px}
+  }
+
+  /* ===== Botón "Secciones" en la barra compacta ===== */
+  .sections-btn{display:none;align-items:center;gap:7px;background:#fff;color:#111113;border:1.5px solid #fff;border-radius:999px;padding:7px 13px;min-height:38px;font-weight:800;font-size:13.5px;line-height:1;white-space:nowrap;flex:none}
+  .sections-btn:hover{background:#e8e8ea;border-color:#e8e8ea}
+  .sections-btn svg{flex:none;display:block}
+  .topbar.is-compact .sections-btn{display:inline-flex}
+  .topbar.is-compact .topnav{gap:8px;align-items:center}
+  @media (max-width:430px){
+    .topbar.is-compact .sections-btn{padding:7px 10px;font-size:13px;gap:5px}
+    .topbar.is-compact .cart-nav-btn{padding:7px 10px;font-size:13px;gap:5px}
+    .topbar.is-compact .brandmark{gap:7px}
+    .topbar.is-compact .brandmark img{width:28px;height:28px}
+    .topbar.is-compact .brandmark .bname{font-size:14.5px;letter-spacing:.14em}
+  }
+  .sections-menu{position:absolute;top:calc(100% + 8px);right:16px;z-index:60;background:#17171a;border:1px solid #3a3a40;border-radius:16px;padding:8px;width:min(264px,calc(100vw - 32px));box-shadow:0 18px 36px rgba(0,0,0,.55);display:flex;flex-direction:column;gap:6px}
+  .sections-menu[hidden]{display:none !important}
+  @media (min-width:1216px){ .sections-menu{right:calc((100vw - 1180px)/2 + 18px)} }
+  .sections-menu a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;min-height:50px;border-radius:12px;background:#232328;color:#fff;text-decoration:none;font-weight:800;font-size:16px}
+  .sections-menu a:hover,.sections-menu a:focus-visible{background:#fff;color:#111113}
+  .sections-menu .sm-count{background:rgba(255,255,255,.16);border-radius:999px;padding:3px 10px;font-size:14px;font-weight:800;flex:none}
+  .sections-menu a:hover .sm-count,.sections-menu a:focus-visible .sm-count{background:#111113;color:#fff}
+</style>
 </head>
 <body>
 
@@ -519,12 +587,18 @@
       <a href="#perfumes" data-goto="perfumes">Perfumes completos</a>
       <a href="#cremas" data-goto="cremas">Cremas</a>
       <a href="#info">Info y entregas</a>
+      <button type="button" class="sections-btn" id="sectionsBtn" aria-haspopup="true" aria-expanded="false" aria-controls="sectionsMenu" aria-label="Ir a una sección del catálogo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Secciones</button>
       <button type="button" class="cart-nav-btn" data-cart-open aria-label="Abrir el carrito de compras"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 3h2l2.6 12.4a1.6 1.6 0 0 0 1.6 1.3h8.7a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/><circle cx="10" cy="20.4" r="1.5"/><circle cx="17.5" cy="20.4" r="1.5"/></svg>Carrito<span class="cart-count-badge" data-cart-count>0</span></button>
       <a class="wa-btn wa-link head-wa" href="https://wa.me/527774403133?text=Hola%20Olfacta%2C%20quiero%20hacer%20un%20pedido." target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.9-4.45 9.9-9.91C21.94 6.45 17.5 2 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.38-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.58 1.74-1.16.27-.58.27-1.07.19-1.18-.08-.1-.23-.16-.48-.28z"/></svg>
         Pedir por WhatsApp
       </a>
     </nav>
+  <div class="sections-menu" id="sectionsMenu" role="menu" aria-label="Ir a una sección" hidden>
+    <a href="#decants" data-goto="decants" role="menuitem">Decants <span class="sm-count">22</span></a>
+    <a href="#perfumes" data-goto="perfumes" role="menuitem">Perfumes completos <span class="sm-count">45</span></a>
+    <a href="#cremas" data-goto="cremas" role="menuitem">Cremas <span class="sm-count">12</span></a>
+  </div>
 </header>
 
 <div class="hero" id="top">
@@ -763,6 +837,7 @@
       <div class="brand" id="m-brand"></div>
       <h3 id="m-title"></h3>
       <p class="m-meta" id="m-meta"></p>
+      <div id="m-notes"></div>
       <p class="m-desc" id="m-desc"></p>
       <div id="m-decant-ui">
         <table class="ptable" aria-label="Precios por tamaño de decant">
@@ -801,6 +876,64 @@ var PLUS_WA = PLUS_SM + WA_SM;
 var PLUS = PLUS_WA;
 var CART = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 3h2l2.6 12.4a1.6 1.6 0 0 0 1.6 1.3h8.7a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/><circle cx="10" cy="20.4" r="1.5"/><circle cx="17.5" cy="20.4" r="1.5"/></svg>';
 var BAG = PLUS_WA;
+/* ---------- notas olfativas de los decants (solo decants, desde el catálogo original) ---------- */
+var DECANT_NOTES = [
+  ["florales","atalcado","amaderado","violeta","almizclado","afrutados","ámbar","cítrico"],
+  ["cítrico","fresco especiado","verde","rosas","herbal","aromático","fresco","florales","ozónico"],
+  ["florales","afrutados","floral blanco","fresco","dulce","rosas"],
+  ["amaderado","atalcado","cálido especiado","balsámico","aromático"],
+  ["cítrico","fresco especiado","atalcado","verde","amaderado","almizclado","aromático","fresco"],
+  ["citrus","powdery","white floral","musky","fresh spicy"],
+  ["aromático","fresco especiado","verde","cítrico","almizclado"],
+  ["cítrico","fresco especiado","aromático","dulce","verde"],
+  ["cálido especiado","fresco especiado","amaderado","avainillado","aromático","afrutados","atalcado","lavanda","cítrico","fresco"],
+  ["cuero","animálico","cálido especiado","floral blanco","ámbar","ahumado","terrosos","musgoso","pachulí"],
+  ["cítrico","fresco especiado"],
+  ["afrutados","cítrico","dulce","almizclado","atalcado","avainillado","ámbar","fresco especiado"],
+  ["cítrico","fresco especiado","aromático"],
+  ["almizclado","cítrico","afrutados","dulce","atalcado"],
+  ["ámbar","oud","cálido especiado","rosas","ahumado","afrutados","amaderado","cuero","balsámico","dulce"],
+  ["amaderado","atalcado","cuero","cálido especiado","violeta"],
+  ["fresco","rosas","florales","afrutados","tropical","pachulí","cálido especiado","cacao","amaderado","cítrico"],
+  ["cítrico","afrutados","aromático","verde","fresco especiado","dulce"],
+  ["cítrico","fresco especiado","fresco","verde","ámbar"],
+  ["cítrico","aromático","ámbar","fresco especiado","acuático","cálido especiado","almizclado","herbal","fresco","amaderado"],
+  ["avainillado","lavanda","aromático","amaderado","atalcado","terrosos","fresco especiado","dulce"],
+  ["cálido especiado","ámbar","dulce","amaderado","caramelo","aromático"]
+];
+var NOTE_COLORS = {
+  "florales":["#f15a8a","#fff"], "rosas":["#e75480","#fff"], "floral blanco":["#f3ede0","#2b2118"],
+  "violeta":["#8e6bc8","#fff"], "lavanda":["#9a8bc2","#fff"],
+  "atalcado":["#eadfce","#3a2f22"], "almizclado":["#d9d2e6","#2f2a3a"],
+  "amaderado":["#8d6e4c","#fff"], "cuero":["#6d4c41","#fff"], "oud":["#4e342e","#fff"],
+  "afrutados":["#ef7d54","#fff"], "citrico":["#f2d13d","#2b2300"], "ambar":["#c98a4b","#fff"],
+  "fresco especiado":["#66a86b","#fff"], "calido especiado":["#b85c38","#fff"],
+  "verde":["#5da85f","#fff"], "herbal":["#7aa67a","#fff"], "aromatico":["#4f8a72","#fff"],
+  "fresco":["#7ec8d8","#12303a"], "ozonico":["#8ecae6","#12303a"], "acuatico":["#42a5f5","#fff"],
+  "dulce":["#d48ca6","#fff"], "avainillado":["#e6c87a","#3a2c10"], "caramelo":["#c67c3c","#fff"], "cacao":["#5d4037","#fff"],
+  "balsamico":["#a67c52","#fff"], "animalico":["#795548","#fff"], "ahumado":["#757575","#fff"],
+  "terrosos":["#8a6d4b","#fff"], "musgoso":["#6b7f3e","#fff"], "pachuli":["#4a6741","#fff"], "tropical":["#ff9f43","#2b1a00"]
+};
+function noteKey(s){
+  var k = s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\./g,'').trim();
+  if (k === 'citrus') k = 'citrico';
+  if (k === 'powdery') k = 'atalcado';
+  if (k === 'white floral') k = 'floral blanco';
+  if (k === 'musky') k = 'almizclado';
+  if (k === 'fresh spicy') k = 'fresco especiado';
+  if (k === 'fresco esp') k = 'fresco especiado';
+  return k;
+}
+function notesHTML(i, large){
+  var notes = DECANT_NOTES[i] || [];
+  if (!notes.length) return '';
+  var bars = notes.map(function(n, ni){
+    var c = NOTE_COLORS[noteKey(n)] || ["#3a3a40","#fff"];
+    var w = Math.max(68, 100 - ni * 3.2);
+    return '<span class="note-bar" style="width:' + w + '%;background:' + c[0] + ';color:' + c[1] + '">' + esc(n) + '</span>';
+  }).join('');
+  return '<div class="notes' + (large ? ' notes--large' : '') + '"><p class="notes-title">Notas olfativas</p><div class="notes-bars">' + bars + '</div></div>';
+}
 function decantCard(d, i){
   var rows = DATA.sizes.map(function(s, si){
     return '<div class="srow"><span class="ml">' + s + ' ml</span><span class="pr">' + money(d.prices[si]) + '</span>' +
@@ -811,6 +944,7 @@ function decantCard(d, i){
     '<div class="ph"><img decoding="async" src="' + d.img + '" alt="Frasco de ' + esc(d.brand + ' ' + d.name) + '"></div>' +
     '<div class="body"><div class="brand">' + esc(d.brand) + '</div><h3>' + esc(d.name) + '</h3>' +
     '<div class="meta">Decant · perfume original en atomizador</div>' +
+    notesHTML(i, false) +
     '<div class="sizes">' + rows + '</div>' +
     '<div class="card-actions"><button class="btn btn-line" data-open="decant" data-i="' + i + '">Ver descripción</button></div>' +
     '</div></article>';
@@ -1029,6 +1163,7 @@ var backdrop = document.getElementById('backdrop');
 var mPh = document.getElementById('m-ph'), mImg = document.getElementById('m-img');
 var mBrand = document.getElementById('m-brand'), mTitle = document.getElementById('m-title');
 var mMeta = document.getElementById('m-meta'), mDesc = document.getElementById('m-desc');
+var mNotes = document.getElementById('m-notes');
 var mDecantUI = document.getElementById('m-decant-ui'), mRows = document.getElementById('m-rows'), mSizes = document.getElementById('m-sizes');
 var mPrice = document.getElementById('m-price'), mWa = document.getElementById('m-wa'), mWaLabel = document.getElementById('m-wa-label');
 var lastFocus = null;
@@ -1040,12 +1175,14 @@ function openModal(kind, i){
   mPh.classList.remove('cover');
   mDecantUI.style.display = 'none';
   mDesc.style.display = 'none';
+  if (mNotes) mNotes.innerHTML = '';
   modalState.kind = kind; modalState.i = i; modalState.sel = 2;
   if (kind === 'decant'){
     var d = DATA.decants[i];
     mImg.src = d.img; mImg.alt = 'Frasco de ' + d.brand + ' ' + d.name;
     mBrand.textContent = d.brand; mTitle.textContent = d.name;
     mMeta.textContent = 'Decant · perfume original en atomizador';
+    if (mNotes) mNotes.innerHTML = notesHTML(i, true);
     if (d.desc){ mDesc.textContent = d.desc; mDesc.style.display = ''; }
     mDecantUI.style.display = '';
     mRows.innerHTML = DATA.sizes.map(function(s, si){
@@ -1188,6 +1325,52 @@ if (h === 'perfumes' || h === 'cremas' || h === 'decants') setTab(h);
 
   paint();
   start();
+})();
+</script>
+<script>
+(function(){
+  var header = document.querySelector('.topbar');
+  if (!header) return;
+  var ticking = false;
+  function update(){
+    var y = window.scrollY || document.documentElement.scrollTop || 0;
+    if (y > 90) header.classList.add('is-compact');
+    else if (y < 30) header.classList.remove('is-compact');
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking){ ticking = true; window.requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('sectionsBtn');
+  var menu = document.getElementById('sectionsMenu');
+  var header = document.querySelector('.topbar');
+  if (!btn || !menu) return;
+  function closeMenu(){
+    if (menu.hidden) return;
+    menu.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var willOpen = menu.hidden;
+    menu.hidden = !willOpen;
+    btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function(e){
+    if (e.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('click', function(e){
+    if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) closeMenu();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+  window.addEventListener('scroll', function(){
+    if (header && !header.classList.contains('is-compact')) closeMenu();
+  }, { passive: true });
 })();
 </script>
 </body>
